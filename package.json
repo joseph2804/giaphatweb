@@ -1,0 +1,26 @@
+{
+  "name": "gia-phat-construction-company-site",
+  "version": "1.0.0",
+  "description": "> A simple website template with some interesting features created with HTML , CSS and JavaScript for learning purposes and to practice (Advanced DOM and Events) with JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orion56/Construction-Company-Site-Template.git"
+  },
+  "author": "joseph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Orion56/Construction-Company-Site-Template/issues"
+  },
+  "homepage": "https://github.com/Orion56/Construction-Company-Site-Template#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  }
+}
