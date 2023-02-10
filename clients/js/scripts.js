@@ -15,19 +15,19 @@ function criteria() {
     msg.innerHTML = '';
 
     if (firstChar == '@' || firstChar == '.' || firstChar == '_' || firstChar == '-' || !isNaN(firstChar)) {
-        msg.innerHTML = "invalid fisrt character for Email address";
+        msg.innerHTML = "Kí tự email đầu tiên không hợp lệ";
         state = false;
     } else if (email.length < 8) {
-        msg.innerHTML = "your email is too short!";
+        msg.innerHTML = "Địa chỉ email quá ngắn";
         state = false;
     } else if ((firstAt < 2) || (firstAt != lastAt)) {
-        msg.innerHTML = "Error in @";
+        msg.innerHTML = "Lỗi ở @";
         state = false;
     } else if (lastDot - lastAt < 3) {
-        msg.innerHTML = "Error in domain name";
+        msg.innerHTML = "Lỗi tên miền";
         state = false;
     } else if (email.length - lastDot < 3) {
-        msg.innerHTML = "Error in .com";
+        msg.innerHTML = "Lỗi ở .com";
         state = false;
     } else {
         for (var i = 0; i < email.length && state == true; i++) {
@@ -39,14 +39,14 @@ function criteria() {
             } else if (validChars.indexOf(email.charAt(i)) != -1) {
                 continue;
             } else {
-                msg.innerHTML = "Please use valid email characters";
+                msg.innerHTML = "Vui lòng nhập email hợp lệ!";
                 state = false;
             }
         }
     }
 
     if (state == true) {
-        msg.innerHTML = 'Thank You :) Your Message has been submitted successfully. <br> You shall here form us very soon!';
+        msg.innerHTML = 'Cám ơn bạn, tin nhắn của bạn đã gửi thành công. <br> Chúng tôi sẽ sớm phản hồi bạn';
         document.getElementById('email').classList.remove("invalid")
     } else {
         document.getElementById('email').classList.add("invalid")
@@ -76,6 +76,10 @@ searchBar.addEventListener('keydown', (event) => {
         searchBar.classList.remove('show')
         searchBar.classList.add('hide')
     }
+    if ((keyName == 'Enter' && searchBar.classList.contains('show') == true)) {
+        searchBar.classList.remove('show')
+        searchBar.classList.add('hide')
+    }
 })
 
 searchBox.addEventListener('blur', (event) => {
@@ -88,7 +92,20 @@ searchBox.addEventListener('blur', (event) => {
     // }
 })
 
+document.querySelector('header .logo').addEventListener('click', () => {
+    window.location = '/home'
+})
+
 //SCROLL TO TOP
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+    document.querySelector('.scroll-top').classList.remove('d-none')
+  } else {
+    document.querySelector('.scroll-top').classList.add('d-none')
+  }
+}
 document.querySelector('.scroll-top').addEventListener('click', () => {
     window.scrollTo(0, 0);
 })
