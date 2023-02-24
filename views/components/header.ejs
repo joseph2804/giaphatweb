@@ -4,7 +4,8 @@
         <p></p>
         <p>Mon-Sat 9:00-18:00</p>
         <div class="social">
-            <a href="https://www.facebook.com/xaydungphamgiaphat" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/xaydungphamgiaphat" target="_blank" title="Facebook"><i
+                    class="fa-brands fa-facebook-f"></i></a>
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
             <!-- <a href="#"><i class="fa-brands fa-behance"></i></a> -->
             <!-- <a href="#"><i class="fa-solid fa-basketball"></i></a> -->
@@ -17,9 +18,9 @@
     <div class="hide" id="searchBar">
         <input type="search" name="searchBox" id="searchBox" placeholder="Gõ tìm kiếm ở đây..    Nhấn [Esc] để thoát">
     </div>
-    <div class="container">  
+    <div class="container">
         <h1 class="logo">
-            <span>GIAPHAT</span>CONSTRUCTION 
+            <span>GIAPHAT</span>CONSTRUCTION
             <p>Luôn mang đến những giá trị sống mới</p>
         </h1>
         <label for="menu"><i class="fas fa-bars"></i></label>
@@ -34,4 +35,43 @@
             <i class="fa-solid fa-magnifying-glass" id="search"></i>
         </nav>
     </div>
+    <script>
+        //SEARCH
+        const search = document.getElementById('search');
+        const searchBar = document.getElementById('searchBar');
+        const searchBox = document.getElementById('searchBox');
+        //click on the Magnifier icon to toggle the search bar
+        search.addEventListener('click', function () {
+            searchBar.classList.toggle('show')
+            searchBar.classList.toggle('hide')
+            searchBox.focus()
+        })
+        //press escape to close the search bar
+        searchBar.addEventListener('keydown', (event) => {
+            var keyName = event.key;
+            console.log(keyName);
+            if ((keyName == 'Escape' && searchBar.classList.contains('show') == true)) {
+                searchBar.classList.remove('show')
+                searchBar.classList.add('hide')
+            }
+            if ((keyName == 'Enter' && searchBar.classList.contains('show') == true)) {
+                searchBar.classList.remove('show')
+                searchBar.classList.add('hide')
+            }
+        })
+
+        searchBox.addEventListener('blur', (event) => {
+            searchBar.classList.remove('show')
+            searchBar.classList.add('hide')
+            // var keyName = event.key;
+            // console.log("keyName");
+            // if ((keyName == 'Escape' && searchBar.classList.contains('show') == true)) {
+
+            // }
+        })
+
+        document.querySelector('header .logo').addEventListener('click', () => {
+            window.location = '/home'
+        })
+    </script>
 </header>

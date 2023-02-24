@@ -58,43 +58,6 @@ form.addEventListener("submit", (e) => {
     criteria();
 });
 
-//SEARCH
-const search = document.getElementById('search');
-const searchBar = document.getElementById('searchBar');
-const searchBox = document.getElementById('searchBox');
-//click on the Magnifier icon to toggle the search bar
-search.addEventListener('click', function () {
-    searchBar.classList.toggle('show')
-    searchBar.classList.toggle('hide')
-    searchBox.focus()
-})
-//press escape to close the search bar
-searchBar.addEventListener('keydown', (event) => {
-    var keyName = event.key;
-    console.log(keyName);
-    if ((keyName == 'Escape' && searchBar.classList.contains('show') == true)) {
-        searchBar.classList.remove('show')
-        searchBar.classList.add('hide')
-    }
-    if ((keyName == 'Enter' && searchBar.classList.contains('show') == true)) {
-        searchBar.classList.remove('show')
-        searchBar.classList.add('hide')
-    }
-})
-
-searchBox.addEventListener('blur', (event) => {
-    searchBar.classList.remove('show')
-    searchBar.classList.add('hide')
-    // var keyName = event.key;
-    // console.log("keyName");
-    // if ((keyName == 'Escape' && searchBar.classList.contains('show') == true)) {
-
-    // }
-})
-
-document.querySelector('header .logo').addEventListener('click', () => {
-    window.location = '/home'
-})
 
 //SCROLL TO TOP
 window.onscroll = function() {scrollFunction()};

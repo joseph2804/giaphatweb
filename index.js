@@ -2,12 +2,14 @@ var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var cookieParser = require('cookie-parser')
 var server = express();
 
 var home = require('./controllers/Home');
-// var blogDetail = require('./controllers/BlogDetails');
-// var blog = require('./controllers/Blog');
-// var checkout = require('./controllers/CheckOut');
+var user = require('./controllers/User');
+var admin = require('./controllers/Admin');
+var management = require('./controllers/Management');
+require('dotenv').config();
 // var contact = require('./controllers/Contact');
 // var shopDetails = require('./controllers/ShopDetails');
 // var shopGrid = require('./controllers/ShopGrid');
@@ -16,7 +18,7 @@ var home = require('./controllers/Home');
 server.use(express.static(__dirname + '/clients'));
 server.use(cors());
 server.set('view engine', 'ejs');
-server.use([bodyParser.json(), bodyParser.urlencoded({ extended: true })]);
+server.use([bodyParser.json(), bodyParser.urlencoded({ extended: true }), cookieParser()]);
 server.use(session({
     resave: true,
     saveUninitialized: true,
@@ -30,9 +32,9 @@ server.listen(port, function () {
 });
 
 server.use('/home', home);
-// server.use('/blog-details', blogDetail);
-// server.use('/blog', blog);
-// server.use('/checkout', checkout);
+server.use('/login', user);
+server.use('/admin', admin);
+server.use('/management', management);
 // server.use('/contact', contact);
 // server.use('/shop-details', shopDetails);
 // server.use('/shop-grid', shopGrid);
