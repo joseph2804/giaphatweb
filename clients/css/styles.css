@@ -1033,7 +1033,7 @@ html {
     position: fixed;
     z-index: 10000;
     bottom: 88px;
-    right: 11px;
+    right: 19px;
 }
 
 .scroll-top button {
@@ -1103,7 +1103,7 @@ header .logo {
 @media screen and (max-width: 767px) {
     .scroll-top {
         bottom: 88px;
-        right: 25px;
+        right: 32px;
     }
 
     .scroll-top button {
@@ -1114,12 +1114,12 @@ header .logo {
     }
 }
  /* correspond chat bot */
-@media screen and (max-width: 711px) {
+/* @media screen and (max-width: 711px) {
     .scroll-top {
         bottom: 88px;
         right: 32px;
     }
-}
+} */
 /* RESPONSIVE END */
 
 /* END OF SHEET */
