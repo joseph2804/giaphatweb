@@ -8,6 +8,7 @@ function criteria() {
     let lastAt = email.lastIndexOf('@');
     let lastDot = email.lastIndexOf('.');
     let firstChar = email.charAt(0);
+    let message = $('#message').val()
 
     let state = true;
 
@@ -46,6 +47,15 @@ function criteria() {
     }
 
     if (state == true) {
+        debugger
+        $.ajax({
+            method: "POST",
+            url: "sender/sendMail",
+            data: { mailTo: email, message: message }
+        })
+            .done(function (msg) {
+                alert("Data Saved: " + msg);
+            });
         msg.innerHTML = 'Cám ơn bạn, tin nhắn của bạn đã gửi thành công. <br> Chúng tôi sẽ sớm phản hồi bạn';
         document.getElementById('email').classList.remove("invalid")
     } else {
@@ -60,14 +70,14 @@ form.addEventListener("submit", (e) => {
 
 
 //SCROLL TO TOP
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-    document.querySelector('.scroll-top').classList.remove('d-none')
-  } else {
-    document.querySelector('.scroll-top').classList.add('d-none')
-  }
+    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+        document.querySelector('.scroll-top').classList.remove('d-none')
+    } else {
+        document.querySelector('.scroll-top').classList.add('d-none')
+    }
 }
 document.querySelector('.scroll-top').addEventListener('click', () => {
     window.scrollTo(0, 0);
